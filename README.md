@@ -10,7 +10,7 @@
 
 [나무위키 UBD 문서 참고](https://namu.wiki/w/UBD)
 
-![UBD화폐](https://w.namu.la/s/271e149e9ddeabf700ae2cd75d9661b7540b6dd7a1eaa2dc505919929427bd08344043674a11232c06fdc3e577ef9c8a982b7588869b023312e75cb2a31543b535c608f6952655f0f333bc3f56f98f5c793555d4848fbb9d6957bab4dd14d91e)
+![UBD화폐](https://vignette.wikia.nocookie.net/supernaturalpowers/images/3/32/UBD_%ED%99%94%ED%8F%90.jpg/revision/latest?cb=20190428104335&path-prefix=ko)
 
 
 ## 각오 한 마디

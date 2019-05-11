@@ -1,71 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%} 
+{%block title%}홈{%endblock%} 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+{%block content%}
 
-    <!--css only for bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'home' %}">UBD</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <!--JS, Popper.js, and jQuery for bootstrap-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-</head>
+<div class="container">
+  <h1>For UBD</h1>
+  <!--ubd x/audience-->
+  <h1>UBD로 환산합니다</h1>
+  <form action="{% url 'ubdresult' %}">
+    <input type="number" name="ubdint" cols="30" rows="10" />
+    <br />
+    <input type="submit" value="계산" />
+  </form>
+  <h1>UBD를 변환합니다</h1>
+  <form action="{% url 'ubdresult_rev' %}">
+    <input type="number" name="ubdint_rev" cols="30" rows="10" />
+    <br />
+    <input type="submit" value="계산" />
+  </form>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">UBD</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <h4>현재 시간은 {{ now }}입니다</h4>
+</div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class='cover'>
-        <img width="1500" height="500" src="https://cdn.pixabay.com/photo/2014/09/07/21/59/bicycle-438400_1280.jpg"
-            alt="cover">
-    </div>
-
-    <div class='container'>
-        <h1>For UBD</h1>
-        <!--ubd x/audience-->
-        <h1>UBD로 환산합니다</h1>
-        <form action="{% url 'ubdresult' %}">
-            <input type="number" name="ubdint" cols="30" rows="10"></input>
-            <br>
-            <input type="submit" value="계산">
-        </form>
-        <!--ubd x*audience-->
-        <h1>UBD를 변환합니다</h1>
-        <form action="{% url 'ubdresult_rev' %}">
-            <input type="number" name="ubdint_rev" cols="30" rows="10"></input>
-            <br>
-            <input type="submit" value="계산">
-        </form>
-
-        <h4>현재 시간은 {{ now }}입니다</h4>
-    </div>
-
-</body>
-
-</html>
+{%endblock%}

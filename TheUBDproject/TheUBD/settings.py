@@ -55,7 +55,7 @@ ROOT_URLCONF = 'TheUBD.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['TheUBD/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

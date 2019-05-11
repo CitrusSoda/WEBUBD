@@ -1,22 +1,43 @@
-{%extends 'base.html'%} {%block title%}홈{%endblock%} {%block content%}
+{%extends 'base.html'%} 
+{%block title%}홈{%endblock%}
+{%block content%}
 
 <div class="container">
-  <h1>For UBD</h1>
   <!--ubd x/audience-->
   <h1>UBD로 환산합니다</h1>
-  <form action="{% url 'ubdresult' %}">
-    <input type="number" name="ubdint" cols="30" rows="10" value="0" />
-    <br />
-    <input type="submit" value="계산" />
-  </form>
-  <h1>UBD를 변환합니다</h1>
-  <form action="{% url 'ubdresult_rev' %}">
-    <input type="number" name="ubdint_rev" cols="30" rows="10" value="0" />
-    <br />
-    <input type="submit" value="계산" />
-  </form>
+  <div class="form-group">
+    <form action="{% url 'ubdresult' %}">
+      <input
+        type="number"
+        class="form-control"
+        name="ubdint"
+        cols="30"
+        rows="10"
+        value="0"
+      />
+      <br />
+      <input type="submit" class="btn btn-dark calc" value="계산" />
+    </form>
+  </div>
 
-  <h4>현재 시간은 {{ now }}입니다</h4>
+  <div class="form-grop">
+    <h1>UBD를 변환합니다</h1>
+    <form action="{% url 'ubdresult_rev' %}">
+      <input
+        type="number"
+        class="form-control"
+        name="ubdint_rev"
+        cols="30"
+        rows="10"
+        value="0"
+      />
+      <br />
+      <input type="submit" class="btn btn-dark calc" value="계산" />
+    </form>
+  </div>
+  <br />
+
+  <h4>현재 {{ now }}에 UBD를 이용합니다</h4>
 </div>
 
 {%endblock%}

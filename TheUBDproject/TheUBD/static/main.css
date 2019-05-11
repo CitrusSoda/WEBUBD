@@ -5,13 +5,22 @@
     font-style: normal;
 }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+
 body {
     font-family: "S-CoreDream-8Heavy";
+    background-color: #eee;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 25px;
 }
 
 .header {
     display: block;
-    background-color: #FF6F61;
+    background-color: #2d3436;
     color: white;
     height: 75px;
     text-align: center;
@@ -20,4 +29,19 @@ body {
 
 .header-title {
     line-height: 75px;
+}
+
+.container {
+    margin-top: 15px;
+}
+
+.form-control{
+    margin-top: 20px;
+    height: 70px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.calc {
+    
 }

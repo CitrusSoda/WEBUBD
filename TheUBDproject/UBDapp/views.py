@@ -29,6 +29,7 @@ def ubdresult(request):
 
     return render(request, 'ubdresult.html', {'ubdrep': ubd_rep})
 
+
 def ubdresult_rev(request):
 
     # for crawling
@@ -43,4 +44,4 @@ def ubdresult_rev(request):
     ubd_rev = float(request.GET['ubdint_rev']) * int(noa)
     ubd_revrep = round(ubd_rev, 3)
 
-    return render(request, 'ubdresult_rev.html', {'ubdrev' : ubd_revrep})   
+    return render(request, 'ubdresult_rev.html', {'ubdrev': ubd_revrep})

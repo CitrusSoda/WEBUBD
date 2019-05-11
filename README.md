@@ -2,6 +2,9 @@
 
 ![likelion](https://img.shields.io/badge/LikeLion-JBNU-orange.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+![PWA](https://img.shields.io/badge/django-PWA-blue.svg)
+
+django 와 PWA를 사용하여 개발하였습니다.
 
 
 ## UBD가 무엇인가요?

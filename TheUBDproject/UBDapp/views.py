@@ -31,21 +31,12 @@ def home(request):
         '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.movie_info > dl > dd:nth-child(2)'
     )
 
-    my_titles = []
-    for item1 in my_titles_soup:
-        my_titles.append(item1.text)
-
     for i in range(len(my_titles_soup)):
         my_titles_soup[i] = my_titles_soup[i].text
-
 
     my_titles2_soup = soup.select(
         '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div > a > div > strong'
     )
-
-    my_titles_2 = []
-    for item2 in my_titles2_soup:
-        my_titles_2.append(item2.text)
 
     for i in range(len(my_titles2_soup)):
         my_titles2_soup[i] = my_titles2_soup[i].text
@@ -53,20 +44,31 @@ def home(request):
     my_titlesday_soup = soup.select(
     '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.movie_info > dl > dd:nth-child(4)'
     )
-
-    my_titles_day = []
-    for item3 in my_titlesday_soup:
-        for_ubd_day = item3.text.replace("명","").replace(",","")
-        my_titles_day.append(for_ubd_day)
-
+    my_titlesday = []
     for i in range(len(my_titlesday_soup)):
-        my_titlesday_soup[i] = my_titlesday_soup[i].text    
+        my_titlesday.append(round(float(my_titlesday_soup[i].text.replace("명","").replace(",","")) / int(noa), 2))
 
-    my_titles_result = []
-    for i in range(len(my_titles2_soup)):
-        my_titles_result.append(my_titles2_soup[i] + my_titles_soup[i] + my_titlesday_soup[i])
+    my_titlesall_soup = soup.select(
+    '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.movie_info > dl > dd:nth-child(6)'
+    )
+    my_titlesall = []
+    for i in range(len(my_titlesall_soup)):
+        my_titlesall.append(round(float(my_titlesall_soup[i].text.replace("명","").replace(",","")) / int(noa), 2))
 
-    return render(request, 'index.html', {'now': time_now, 'my_titles_res': my_titles_result})
+    my_image = soup.select(
+    '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.thumb > a > img'
+    )
+
+    my_link = soup.select(
+    '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.thumb > a'
+    )
+
+    movies = []
+    for i in range(len(my_image)):
+        movies.append({'movie_title':my_titles2_soup[i],'infor': my_titles_soup[i],'day_ubd': "일간 UBD : " +str(my_titlesday[i]),'total_ubd': " 누적 UBD : " + str(my_titlesall[i]),
+        'image':my_image[i].get("src"),'link':my_link[i].get("href")})
+    # return render(request, 'index.html', {'now': time_now, 'my_titles_res': my_titles_result, 'my_image': my_image})
+    return render(request, 'index.html', {'now': time_now, 'movies':movies})
 
 def ubdresult(request):
 

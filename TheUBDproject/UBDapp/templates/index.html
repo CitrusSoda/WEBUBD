@@ -38,13 +38,33 @@
     </form>
   </div>
   <br />
-
-  {% for title_r in my_titles_res %}
-  <div>
-    {{ title_r }}
+  <hr>
+  <h1>요즘 뜨는 영화</h1>
+  <div class = container>
+    <div class="row text-center">
+        {% for movie in movies %}
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-70">
+          <img class="card-img-top" src="{{ movie.image }}" alt="movie_image">
+          <div class="card-body">
+            <h4 class="card-title">{{movie.movie_title}}</h4>
+            <br />
+            <p class="card-text">{{movie.infor}}</p>
+            <br />
+            <p class="card-text">{{movie.day_ubd}}</p>
+            <br />
+            <p class="card-text">{{movie.total_ubd}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://search.naver.com/search.naver{{ movie.link }}" class="btn btn-dark">네이버에서 정보 찾기!</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-  {% endfor %}
-  
+  <hr>
 </div>
 
 {%endblock%}
+

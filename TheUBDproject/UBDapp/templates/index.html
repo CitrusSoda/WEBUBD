@@ -1,43 +1,17 @@
-{%extends 'base.html'%} 
-{%block title%}홈{%endblock%} 
-
-{%block content%}
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'home' %}">UBD</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+{%extends 'base.html'%} {%block title%}홈{%endblock%} {%block content%}
 
 <div class="container">
   <h1>For UBD</h1>
   <!--ubd x/audience-->
   <h1>UBD로 환산합니다</h1>
   <form action="{% url 'ubdresult' %}">
-    <input type="number" name="ubdint" cols="30" rows="10" />
+    <input type="number" name="ubdint" cols="30" rows="10" value="0" />
     <br />
     <input type="submit" value="계산" />
   </form>
   <h1>UBD를 변환합니다</h1>
   <form action="{% url 'ubdresult_rev' %}">
-    <input type="number" name="ubdint_rev" cols="30" rows="10" />
+    <input type="number" name="ubdint_rev" cols="30" rows="10" value="0" />
     <br />
     <input type="submit" value="계산" />
   </form>

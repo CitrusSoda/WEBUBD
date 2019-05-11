@@ -1,4 +1,4 @@
-@font-face {
+ @font-face {
     font-family: "S-CoreDream-8Heavy";
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff") format("woff");
     font-weight: normal;
@@ -29,7 +29,13 @@ h1 {
 }
 
 .header-title {
+    font-size: 40px;
+    color:white;
     line-height: 75px;
+}
+.header-title:hover {
+    color:white;
+    text-decoration: none;
 }
 
 .container {

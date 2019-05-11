@@ -4,12 +4,10 @@ from bs4 import BeautifulSoup
 import requests
 # Create your views here.
 
+# time on now
+time_now = datetime.datetime.now()
 
 def home(request):
-
-    # time on now
-    time_now = datetime.datetime.now()
-
     return render(request, 'index.html', {'now': time_now})
 
 
@@ -27,7 +25,7 @@ def ubdresult(request):
     ubd_int = float(request.GET['ubdint']) / int(noa)
     ubd_rep = round(ubd_int, 3)
 
-    return render(request, 'ubdresult.html', {'ubdrep': ubd_rep})
+    return render(request, 'ubdresult.html', {'ubdrep': ubd_rep, 'now': time_now})
 
 
 def ubdresult_rev(request):
@@ -44,4 +42,4 @@ def ubdresult_rev(request):
     ubd_rev = float(request.GET['ubdint_rev']) * int(noa)
     ubd_revrep = round(ubd_rev, 3)
 
-    return render(request, 'ubdresult_rev.html', {'ubdrev': ubd_revrep})
+    return render(request, 'ubdresult_rev.html', {'ubdrev': ubd_revrep, 'now': time_now})

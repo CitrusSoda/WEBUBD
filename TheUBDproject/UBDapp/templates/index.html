@@ -4,7 +4,7 @@
 
 <div class="container">
   <!--ubd x/audience-->
-  <h1>UBD로 환산합니다</h1>
+  <h1>관객 수를 UBD로</h1>
   <div class="form-group">
     <form action="{% url 'ubdresult' %}">
       <input
@@ -16,12 +16,14 @@
         value="0"
       />
       <br />
-      <input type="submit" class="btn btn-dark calc" value="계산" />
+      <input type="submit" class="btn btn-dark btn-block calc" value="계산" />
     </form>
   </div>
 
+  <hr>
+
   <div class="form-grop">
-    <h1>UBD를 변환합니다</h1>
+    <h1>UBD를 관객 수로 </h1>
     <form action="{% url 'ubdresult_rev' %}">
       <input
         type="number"
@@ -32,12 +34,11 @@
         value="0"
       />
       <br />
-      <input type="submit" class="btn btn-dark calc" value="계산" />
+      <input type="submit" class="btn btn-dark btn-block calc" value="계산" />
     </form>
   </div>
   <br />
 
-  <h4>현재 {{ now }}에 UBD를 이용합니다</h4>
 </div>
 
 {%endblock%}

@@ -54,7 +54,13 @@
       sizes="16x16"
       href="{% static 'favicon-16x16.png' %}"
     />
-    <link rel="manifest" href="{% static 'site.webmanifest' %}" />
+
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="{% static 'android-chrome-192x192.png' %}"
+  />
 
     <title>UBD 계산기 | {%block title%}{%endblock%}</title>
   </head>
@@ -66,6 +72,7 @@
     {%block content%}{%endblock%}
 
     <footer class="footer">
+      <br />
       <h5>{{ now }}</h5>
       <p>에 해당하는 UBD를 이용합니다.</p>
     </footer>

@@ -20,5 +20,6 @@
     ],
     "start_url": "/",
     "background_color": "#fab1a0",
+    "theme_color": "#fab1a0",
     "display": "standalone"
   }

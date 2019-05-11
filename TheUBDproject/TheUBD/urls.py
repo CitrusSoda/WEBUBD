@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', UBDapp.views.home, name = 'home'),
     path("result/", UBDapp.views.ubdresult, name = 'ubdresult'),
+    path('resultrev/', UBDapp.views.ubdresult_rev, name = 'ubdresult_rev'),
 ]

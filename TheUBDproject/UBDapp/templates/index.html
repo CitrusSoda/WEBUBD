@@ -48,8 +48,17 @@
 
     <div class='container'>
         <h1>For UBD</h1>
+        <!--ubd x/audience-->
+        <h1>UBD로 환산합니다</h1>
         <form action="{% url 'ubdresult' %}">
             <input type="number" name="ubdint" cols="30" rows="10"></input>
+            <br>
+            <input type="submit" value="계산">
+        </form>
+        <!--ubd x*audience-->
+        <h1>UBD를 변환합니다</h1>
+        <form action="{% url 'ubdresult_rev' %}">
+            <input type="number" name="ubdint_rev" cols="30" rows="10"></input>
             <br>
             <input type="submit" value="계산">
         </form>

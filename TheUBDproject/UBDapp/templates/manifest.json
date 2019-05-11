@@ -1,6 +1,6 @@
 {
-    "short_name": "UBD_Calc",
-    "name": "The_UBD_Calculator",
+    "short_name": "UBD 계산기",
+    "name": "UBD 계산기",
     "icons": [
       {
         "src": "..\\static\\favicon-16x16.png",

@@ -1,12 +1,16 @@
 from django.shortcuts import render
-import requests
+import datetime
 from bs4 import BeautifulSoup
-
+from django.utils import timezone
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'index.html')
+
+    # time on now
+    time_now = datetime.datetime.now()
+
+    return render(request, 'index.html', {'now': time_now})
 
 
 def ubdresult(request):

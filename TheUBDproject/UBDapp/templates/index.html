@@ -10,11 +10,15 @@
 
 <body>
     <h1>Hello UBD!!</h1>
+
     <form action="{% url 'ubdresult' %}">
         <input type="number" name="ubdint" cols="30" rows="10"></input>
         <br>
         <input type="submit" value="계산">
     </form>
+    <h1>{{ now }}</h1>
+
+
 </body>
 
 </html>

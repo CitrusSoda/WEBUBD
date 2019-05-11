@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import datetime
 from bs4 import BeautifulSoup
-from django.utils import timezone
+import requests
 # Create your views here.
 
 

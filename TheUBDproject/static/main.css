@@ -1,0 +1,54 @@
+ @font-face {
+    font-family: "S-CoreDream-8Heavy";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+
+body {
+    font-family: "S-CoreDream-8Heavy";
+    background-color: #eee;
+    text-align: center;
+    word-wrap: normal;
+}
+
+h1 {
+    margin-top: 35px;
+}
+
+.header {
+    display: block;
+    background-color: #2d3436;
+    color: white;
+    height: 75px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.header-title {
+    font-size: 40px;
+    color:white;
+    line-height: 75px;
+}
+.header-title:hover {
+    color:white;
+    text-decoration: none;
+}
+
+.container {
+    margin-top: 25px;
+}
+
+.form-control{
+    margin-top: 20px;
+    height: 70px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.calc {
+    margin-bottom: 40px;
+}

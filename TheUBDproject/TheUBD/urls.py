@@ -22,6 +22,6 @@ urlpatterns = [
     path('', UBDapp.views.home, name='home'),
     path("result/", UBDapp.views.ubdresult, name='ubdresult'),
     path('resultrev/', UBDapp.views.ubdresult_rev, name='ubdresult_rev'),
-    path(r'base_layout', UBDapp.views.base_layout, name='base_layout'),
+    path(r'base_layout', UBDapp.views.home, name='base_layout'),
     path('', include('pwa.urls')),
 ]

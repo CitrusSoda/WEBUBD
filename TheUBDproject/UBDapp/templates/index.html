@@ -41,14 +41,19 @@
         </div>
     </nav>
 
-    <div class='container'>
-        <h1>UBD 변환 사이트입니다.</h1>
+    <div class='cover'>
+        <img width="1500" height="500" src="https://cdn.pixabay.com/photo/2014/09/07/21/59/bicycle-438400_1280.jpg"
+            alt="cover">
+    </div>
 
+    <div class='container'>
+        <h1>For UBD</h1>
         <form action="{% url 'ubdresult' %}">
             <input type="number" name="ubdint" cols="30" rows="10"></input>
             <br>
             <input type="submit" value="계산">
         </form>
+
         <h4>현재 시간은 {{ now }}입니다</h4>
     </div>
 

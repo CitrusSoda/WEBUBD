@@ -1,0 +1,1 @@
+web: gunicorn TheUBD.wsgi --log-file -

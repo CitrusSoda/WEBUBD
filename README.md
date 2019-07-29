@@ -19,3 +19,11 @@ django 와 PWA를 사용하여 개발하였습니다.
 ## 각오 한 마디
 
 술 한 잔 마셨습니다... 코딩이 잘 안되도 좋습니다. 하지만 UBD 하나만 기억해주세요 진심을 다해 전합니다. 서비스가 별로 일수있습니다 밤낮으로 고민하고 코딩했습니다 ...최선을 다했고 열심히 했습니다 저의 진심이 느껴지길 바랍니다 고맙습니다...
+
+## 배포 링크
+
+https://the-ubd-web.herokuapp.com/
+
+## 스크린샷
+
+![모바일스크린샷](https://cdn-class.likelion.org/media/submissions/y42lpMdUKPgYhZQ.png)

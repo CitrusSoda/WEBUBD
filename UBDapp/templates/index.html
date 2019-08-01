@@ -1,4 +1,4 @@
-{%extends 'base.html'%} 
+{%extends 'base.html'%}
 {%block title%}홈{%endblock%}
 {%block content%}
 
@@ -7,16 +7,8 @@
   <h1>관객 수를 UBD로</h1>
   <div class="form-group">
     <form action="{% url 'ubdresult' %}">
-      <input
-        type="number"
-        step="any"
-        min="0"
-        class="form-control"
-        name="ubdint"
-        cols="30"
-        rows="10"
-        placeholder="0 이상 입력해주세요."
-      />
+      <input type="number" step="any" min="0" class="form-control" name="ubdint" cols="30" rows="10"
+        placeholder="0 이상 입력해주세요." />
       <br />
       <input type="submit" class="btn btn-dark btn-block calc" value="계산" />
     </form>
@@ -27,17 +19,8 @@
   <div class="form-grop">
     <h1>UBD를 관객 수로 </h1>
     <form action="{% url 'ubdresult_rev' %}">
-      <input
-        type="number"
-        step="0.01"
-        min="0"
-        max="100"
-        class="form-control"
-        name="ubdint_rev"
-        cols="30"
-        rows="10"
-        placeholder="0 이상 입력해주세요."
-      />
+      <input type="number" step="0.01" min="0" max="100" class="form-control" name="ubdint_rev" cols="30" rows="10"
+        placeholder="0 이상 입력해주세요." />
       <br />
       <input type="submit" class="btn btn-dark btn-block calc" value="계산" />
     </form>
@@ -45,9 +28,9 @@
   <br />
   <hr>
   <h1>요즘 뜨는 영화</h1>
-  <div class = container>
+  <div class=container>
     <div class="row text-center">
-        {% for movie in movies %}
+      {% for movie in movies %}
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-70">
           <img class="card-img-top" src="{{ movie.image }}" alt="movie_image">
@@ -71,5 +54,10 @@
   <hr>
 </div>
 
-{%endblock%}
+{% if message %}
+<script>
+  alert('올바른 값을 넣어주세요.')
+</script>
+{% endif %}
 
+{%endblock%}

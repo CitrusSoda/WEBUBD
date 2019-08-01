@@ -7,6 +7,8 @@ import requests
 # time on now
 time_now = datetime.datetime.now()
 
+alert_message = False
+
 # for crawling
 req = requests.get(
     'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%97%84%EB%B3%B5%EB%8F%99+%EA%B4%80%EA%B0%9D%EC%88%98')
@@ -72,11 +74,13 @@ def home(request):
         movies.append({'movie_title': my_titles2_soup[i], 'infor': my_titles_soup[i], 'day_ubd': "일간 UBD : " + str(my_titlesday[i]), 'total_ubd': " 누적 UBD : " + str(my_titlesall[i]),
                        'image': my_image[i].get("src"), 'link': my_link[i].get("href")})
     # return render(request, 'index.html', {'now': time_now, 'my_titles_res': my_titles_result, 'my_image': my_image})
-    return render(request, 'index.html', {'now': time_now, 'movies': movies})
+    return render(request, 'index.html', {'now': time_now, 'movies': movies, 'message': alert_message})
 
 
 def ubdresult(request):
+
     if request.GET['ubdint'] == "":
+        alert_message = True
         return redirect('home')
 
     ubd_int = float(request.GET['ubdint']) / int(noa)
@@ -87,6 +91,7 @@ def ubdresult(request):
 
 def ubdresult_rev(request):
     if request.GET['ubdint_rev'] == "":
+        alert_message = True
         return redirect('home')
 
     ubd_rev = float(request.GET['ubdint_rev']) * int(noa)

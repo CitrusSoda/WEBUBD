@@ -1,80 +1,55 @@
-{% load staticfiles %} 
+{% load staticfiles %}
 {% load pwa %}
 
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    {% progressive_web_app_meta %}
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+  {% progressive_web_app_meta %}
 
-    <!--css only for bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!--JS, Popper.js, and jQuery for bootstrap-->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+  <!--css only for bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="{% static 'main.css' %}" />
+  <!--JS, Popper.js, and jQuery for bootstrap-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="{% static 'apple-touch-icon.png' %}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="{% static 'favicon-32x32.png' %}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="{% static 'favicon-16x16.png' %}"
-    />
+  <link rel="stylesheet" href="{% static 'main.css' %}" />
 
-    <link
-    rel="icon"
-    type="image/png"
-    sizes="512x512"
-    href="{% static 'android-chrome-512x512.png' %}"
-  />
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}" />
 
-    <title>UBD 계산기 | {%block title%}{%endblock%}</title>
-  </head>
-  <body>
-    <header class="header">
-      <a href="{% url 'home' %}" class="header-title">UBD 계산기</a>
-    </header>
+  <link rel="icon" type="image/png" sizes="512x512" href="{% static 'android-chrome-512x512.png' %}" />
 
-    {%block content%}{%endblock%}
+  <title>UBD 계산기 | {%block title%}{%endblock%}</title>
+</head>
 
-    <footer class="footer">
-      <br />
-      <h5>{{ now }}</h5>
-      <p>에 해당하는 UBD를 이용합니다.</p>
-    </footer>
-  </body>
+<body>
+  <header class="header">
+    <a href="{% url 'home' %}" class="header-title">UBD 계산기</a>
+  </header>
+
+  {%block content%}{%endblock%}
+
+  <footer class="footer">
+    <br />
+    <h5>{{ now }}</h5>
+    <p>에 해당하는 UBD를 이용합니다.</p>
+  </footer>
+
+</body>
+
 </html>

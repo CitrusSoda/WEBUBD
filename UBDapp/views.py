@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import datetime
 from bs4 import BeautifulSoup
 import requests
@@ -6,6 +6,8 @@ import requests
 
 # time on now
 time_now = datetime.datetime.now()
+
+alert_message = False
 
 # for crawling
 req = requests.get(
@@ -21,10 +23,12 @@ def forPrint(array):
     for item in array:
         return item.text
 
+
 def home(request):
 
-    #for crawling
-    req = requests.get('https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&query=%EB%B0%95%EC%8A%A4%EC%98%A4%ED%94%BC%EC%8A%A4')
+    # for crawling
+    req = requests.get(
+        'https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&query=%EB%B0%95%EC%8A%A4%EC%98%A4%ED%94%BC%EC%8A%A4')
     html = req.text
     soup = BeautifulSoup(html, 'html.parser')
     my_titles_soup = soup.select(
@@ -42,36 +46,42 @@ def home(request):
         my_titles2_soup[i] = my_titles2_soup[i].text
 
     my_titlesday_soup = soup.select(
-    '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.movie_info > dl > dd:nth-child(4)'
+        '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.movie_info > dl > dd:nth-child(4)'
     )
     my_titlesday = []
     for i in range(len(my_titlesday_soup)):
-        my_titlesday.append(round(float(my_titlesday_soup[i].text.replace("명","").replace(",","")) / int(noa), 2))
+        my_titlesday.append(round(float(my_titlesday_soup[i].text.replace(
+            "명", "").replace(",", "")) / int(noa), 2))
 
     my_titlesall_soup = soup.select(
-    '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.movie_info > dl > dd:nth-child(6)'
+        '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.movie_info > dl > dd:nth-child(6)'
     )
     my_titlesall = []
     for i in range(len(my_titlesall_soup)):
-        my_titlesall.append(round(float(my_titlesall_soup[i].text.replace("명","").replace(",","")) / int(noa), 2))
+        my_titlesall.append(round(float(my_titlesall_soup[i].text.replace(
+            "명", "").replace(",", "")) / int(noa), 2))
 
     my_image = soup.select(
-    '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.thumb > a > img'
+        '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.thumb > a > img'
     )
 
     my_link = soup.select(
-    '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.thumb > a'
+        '#main_pack > div.content_search.section._cs_movie_box_office > div > div.contents03_sub > div > div.movie_rank_wrap > div.movie_audience_ranking._main_panel.v2 > div:nth-child(1) > ul > li > div.thumb > a'
     )
 
     movies = []
     for i in range(len(my_image)):
-        movies.append({'movie_title':my_titles2_soup[i],'infor': my_titles_soup[i],'day_ubd': "일간 UBD : " +str(my_titlesday[i]),'total_ubd': " 누적 UBD : " + str(my_titlesall[i]),
-        'image':my_image[i].get("src"),'link':my_link[i].get("href")})
+        movies.append({'movie_title': my_titles2_soup[i], 'infor': my_titles_soup[i], 'day_ubd': "일간 UBD : " + str(my_titlesday[i]), 'total_ubd': " 누적 UBD : " + str(my_titlesall[i]),
+                       'image': my_image[i].get("src"), 'link': my_link[i].get("href")})
     # return render(request, 'index.html', {'now': time_now, 'my_titles_res': my_titles_result, 'my_image': my_image})
-    return render(request, 'index.html', {'now': time_now, 'movies':movies})
+    return render(request, 'index.html', {'now': time_now, 'movies': movies, 'message': alert_message})
+
 
 def ubdresult(request):
 
+    if request.GET['ubdint'] == "":
+        alert_message = True
+        return redirect('home')
 
     ubd_int = float(request.GET['ubdint']) / int(noa)
     ubd_rep = round(ubd_int, 3)
@@ -80,7 +90,9 @@ def ubdresult(request):
 
 
 def ubdresult_rev(request):
-
+    if request.GET['ubdint_rev'] == "":
+        alert_message = True
+        return redirect('home')
 
     ubd_rev = float(request.GET['ubdint_rev']) * int(noa)
     ubd_revrep = round(ubd_rev, 3)
@@ -89,5 +101,5 @@ def ubdresult_rev(request):
 
 
 def base_layout(request):
-	template='base.html'
-	return render(request,template)
+    template = 'base.html'
+    return render(request, template)
